@@ -24,10 +24,10 @@ extern "C" {
     fn rte_errno_() -> c_int;
     fn rte_pktmbuf_chain_(head: *mut rte_mbuf, tail: *mut rte_mbuf) -> c_int;
     fn rte_eth_rss_ip_() -> ::std::os::raw::c_int;
-    fn rte_eth_tx_offload_tcp_cksum() -> ::std::os::raw::c_int;
-    fn rte_eth_tx_offload_udp_cksum() -> ::std::os::raw::c_int;
-    fn rte_eth_rx_offload_tcp_cksum() -> ::std::os::raw::c_int;
-    fn rte_eth_rx_offload_udp_cksum() -> ::std::os::raw::c_int;
+    fn rte_eth_tx_offload_tcp_cksum_() -> ::std::os::raw::c_int;
+    fn rte_eth_tx_offload_udp_cksum_() -> ::std::os::raw::c_int;
+    fn rte_eth_rx_offload_tcp_cksum_() -> ::std::os::raw::c_int;
+    fn rte_eth_rx_offload_udp_cksum_() -> ::std::os::raw::c_int;
 }
 
 #[cfg(feature = "mlx5")]
