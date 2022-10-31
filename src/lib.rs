@@ -112,6 +112,6 @@ pub unsafe fn rte_pktmbuf_chain(head: *mut rte_mbuf, tail: *mut rte_mbuf) -> c_i
 }
 
 #[inline]
-pub fn rte_eth_rss_ip() {
+pub unsafe fn rte_eth_rss_ip() {
     return rte_eth_rss_ip_();
 }
