@@ -11,7 +11,6 @@ use std::os::raw::{c_char, c_int};
 
 #[link(name = "inlined")]
 extern "C" {
-    fn rte_eth_rss_ip_() -> ::std::os::raw::c_int;
     fn rte_pktmbuf_free_(packet: *mut rte_mbuf);
     fn rte_pktmbuf_alloc_(mp: *mut rte_mempool) -> *mut rte_mbuf;
     fn rte_eth_tx_burst_(port_id: u16, queue_id: u16, tx_pkts: *mut *mut rte_mbuf, nb_pkts: u16) -> u16;
@@ -24,6 +23,11 @@ extern "C" {
     fn rte_pktmbuf_tailroom_(m: *const rte_mbuf) -> u16;
     fn rte_errno_() -> c_int;
     fn rte_pktmbuf_chain_(head: *mut rte_mbuf, tail: *mut rte_mbuf) -> c_int;
+    fn rte_eth_rss_ip_() -> ::std::os::raw::c_int;
+    fn rte_eth_tx_offload_tcp_cksum() -> ::std::os::raw::c_int;
+    fn rte_eth_tx_offload_udp_cksum() -> ::std::os::raw::c_int;
+    fn rte_eth_rx_offload_tcp_cksum() -> ::std::os::raw::c_int;
+    fn rte_eth_rx_offload_udp_cksum() -> ::std::os::raw::c_int;
 }
 
 #[cfg(feature = "mlx5")]
@@ -115,3 +119,24 @@ pub unsafe fn rte_pktmbuf_chain(head: *mut rte_mbuf, tail: *mut rte_mbuf) -> c_i
 pub unsafe fn rte_eth_rss_ip() -> u64 {
     return rte_eth_rss_ip_() as _;
 }
+
+#[inline]
+pub unsafe fn rte_eth_tx_offload_tcp_cksum() -> u64 {
+    return rte_eth_tx_offload_tcp_cksum_() as _;
+}
+
+#[inline]
+pub unsafe fn rte_eth_rx_offload_tcp_cksum() -> u64 {
+    return rte_eth_rx_offload_tcp_cksum_() as _;
+}
+
+#[inline]
+pub unsafe fn rte_eth_tx_offload_udp_cksum() -> u64 {
+    return rte_eth_tx_offload_udp_cksum_() as _;
+}
+
+#[inline]
+pub unsafe fn rte_eth_rx_offload_udp_cksum() -> u64 {
+    return rte_eth_rx_offload_udp_cksum_() as _;
+}
+
