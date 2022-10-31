@@ -188,6 +188,8 @@ fn os_build() -> Result<()> {
         .allowlist_var("RTE_MBUF_DEFAULT_BUF_SIZE")
         .allowlist_var("RTE_ETHER_MAX_JUMBO_FRAME_LEN")
         .allowlist_var("RTE_ETH_DEV_NO_OWNER")
+        .allowlist_var("RTE_ETHER_MAX_LEN")
+        .allowlist_var("RTE_ETH_RSS_IP")
         .allowlist_function("rte_eth_find_next_owned_by")
         .allowlist_var("RTE_MAX_ETHPORTS")
         .allowlist_function("rte_eth_dev_info_get")
