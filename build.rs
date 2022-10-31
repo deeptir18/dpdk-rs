@@ -201,8 +201,7 @@ fn os_build() -> Result<()> {
         .allowlist_var("RTE_ETH_RX_OFFLOAD_UDP_CKSUM")
         .allowlist_var("RTE_ETH_MQ_RX_RSS")
         .allowlist_var("RTE_ETH_MQ_TX_NONE")
-
-        .allowlist_function("rte_auxiliarry_register")
+        .allowlist_function("rte_auxiliary_register")
         .blocklist_type("rte_arp_ipv4")
         .blocklist_type("rte_arp_hdr")
         .clang_arg("-mavx")
