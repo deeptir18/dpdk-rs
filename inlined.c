@@ -8,6 +8,10 @@
 #include <rte_ether.h>
 #include <rte_errno.h>
 
+int rte_eth_rss_ip_() {
+    return RTE_ETH_RSS_IP;
+}
+
 void rte_pktmbuf_free_(struct rte_mbuf *packet) {
     rte_pktmbuf_free(packet);
 }

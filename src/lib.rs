@@ -11,6 +11,7 @@ use std::os::raw::{c_char, c_int};
 
 #[link(name = "inlined")]
 extern "C" {
+    fn rte_eth_rss_ip_();
     fn rte_pktmbuf_free_(packet: *mut rte_mbuf);
     fn rte_pktmbuf_alloc_(mp: *mut rte_mempool) -> *mut rte_mbuf;
     fn rte_eth_tx_burst_(port_id: u16, queue_id: u16, tx_pkts: *mut *mut rte_mbuf, nb_pkts: u16) -> u16;
@@ -108,4 +109,9 @@ pub unsafe fn rte_errno() -> c_int {
 #[inline]
 pub unsafe fn rte_pktmbuf_chain(head: *mut rte_mbuf, tail: *mut rte_mbuf) -> c_int {
     rte_pktmbuf_chain_(head, tail)
+}
+
+#[inline]
+pub fn rte_eth_rss_ip() {
+    return rte_eth_rss_ip_();
 }
